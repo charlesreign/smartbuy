@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './Header.module.scss'
 import { Link } from 'react-router-dom'
+import {FaCartShopping} from 'react-icons/fa6'
 
 const logo = (
   <div className={styles.logo}>
@@ -12,11 +13,35 @@ const logo = (
   </div>
 )
 
+const cart = (
+  <span className={styles.cart}>
+    <Link to='/cart'>
+      Cart
+      <FaCartShopping size={20}/>
+      <p>{0}</p>
+      </Link>
+  </span>
+)
+
 const Header = () => {
   return (
     <header>
       <div className={styles.header}>
         {logo}
+        <nav>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/contact">Contact Us</Link></li>
+          </ul>
+          <div className={styles["header-right"]}>
+            <span className={styles.links}>
+              <Link to='/login'>Login</Link>
+              <Link to='/register'>Register </Link>
+              <Link to='/order-history'>My Orders</Link>
+            </span>
+            {cart}
+          </div>
+        </nav>
       </div>
     </header>
   )
