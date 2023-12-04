@@ -21,6 +21,7 @@ const Register = () => {
     e.preventDefault();
     if (password !== cPassword) {
       toast.error("Passwords do not match");
+      return;
     }
 
     setIsLoading(true);
